@@ -134,10 +134,10 @@ cleartext to the server.)"),
             "song_elapsed": TimeWrapper(float(status.get("elapsed", 0))),
             "bitrate": int(status.get("bitrate", 0)),
         }
-
         if not fdict["title"] and "file" in currentsong:
             fdict["filename"] = '.'.join(
                 basename(currentsong["file"]).split('.')[:-1])
+            fdict["title"] = fdict["filename"]
         else:
             fdict["filename"] = ""
 
