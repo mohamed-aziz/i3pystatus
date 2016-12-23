@@ -5,7 +5,7 @@ from i3pystatus import IntervalModule
 
 class Emacs(IntervalModule):
 
-    interval = 5  # check if emacs is running every 100 seconds
+    interval = 5  # check if emacs is running every 5 seconds
 
     settings = (
         "format",
