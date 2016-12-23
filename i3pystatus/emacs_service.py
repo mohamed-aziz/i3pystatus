@@ -10,7 +10,7 @@ class Emacs(IntervalModule):
     settings = (
         "format",
         "color",
-        "status"
+        "status"        
     )
 
     format = "{message}"
@@ -21,10 +21,13 @@ class Emacs(IntervalModule):
     message = status["RUN"]
     color = "#FFFFFF"
     color_not_running = "#E01836"
-    
+    on_leftclick = "unleash_the_power"
+
+    def is_running(self):
+        return run_through_shell("systemctl is-active --user emacs".split()).out.split()[0] == 'active'
+
     def run(self):
-        message = run_through_shell("systemctl is-active --user emacs".split()).out.split()[0] == 'active'
-        if message:
+        if self.is_running():
             self.output = {
                 'full_text': self.format.format(**{
                     "status": self.status["RUN"]
@@ -38,3 +41,7 @@ class Emacs(IntervalModule):
                 }),
                 "color": self.color_not_running,
             }
+
+    def unleash_the_power(self):
+        if not self.is_running():
+            run_through_shell("systemctl start --user emacs".split())
