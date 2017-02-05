@@ -25,6 +25,7 @@ MOCK_MODULES = [
     "lxml.html", "lxml.cssselect", "lxml",
     "praw",
     "gi", "gi.repository", "dbus.mainloop.glib", "dbus",
+    "GeoIP",
     "pywapi", "basiciw",
     "i3pystatus.pulseaudio.pulse",
     "notmuch",
@@ -32,7 +33,7 @@ MOCK_MODULES = [
     "bs4",
     "dota2py",
     "novaclient",
-    "speedtest_cli",
+    "speedtest",
     "pyzabbix",
     "vk",
     "google-api-python-client",
@@ -46,7 +47,8 @@ MOCK_MODULES = [
     "i3ipc",
     "dateutil.parser",
     "dateutil.relativedelta",
-    "redshift_gtk.statusicon",
+    "xkbgroup",
+    "sensors"
 ]
 
 for mod_name in MOCK_MODULES:
